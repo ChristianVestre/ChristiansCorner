@@ -1,0 +1,19 @@
+{
+  "name": "greeter-graphql-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.0.0-rc.6",
+    "apollo-server-express": "^2.0.0-rc.6",
+    "google-protobuf": "^3.6.0",
+    "graphql": "^0.13.2",
+    "grpc": "^1.13.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
