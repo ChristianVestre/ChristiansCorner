@@ -1,41 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import './pages/homepage.dart';
 import './pages/listpage.dart';
 import './blocs/listBloc.dart';
 import './blocs/listProvider.dart';
+import './blocs/userBloc.dart';
+import './blocs/userProvider.dart';
+import './pages/userpage.dart';
+
 
 void main() {
   final listBloc = ListBloc();
-  listBloc.listIdSink.add('si81z2ojmrqcooo');
-  runApp(MyApp(listBloc));
+  final userBloc = UserBloc();
+//  listBloc.listIdSink.add('si81z2ojmrqcooo');
+  listBloc.listIdSink.add('si81z2ojmz7jfy1');
+  userBloc.userIdSink.add('e9m17rkjn0w0dkq');
+  runApp(MyApp(listBloc,userBloc));
 }
 
 class MyApp extends StatelessWidget {
   final ListBloc listBloc;
+  final UserBloc userBloc;
   @override
-  MyApp(this.listBloc);
+  MyApp(this.listBloc,this.userBloc);
 
   Widget build(BuildContext context) {
-    ValueNotifier<Client> client = ValueNotifier(
-      Client(
-        endPoint: 'http://192.168.179.27:4000/',
-        cache: InMemoryCache(),
-      ),
-    );
-    return ListProvider(
+    return UserProvider(
+      userBloc: userBloc,
+      child: ListProvider(
       listBloc: listBloc,
-      child: GraphqlProvider(
-        client: client,
-        child: CacheProvider(
             child: MaterialApp(
           theme: ThemeData(
             primarySwatch: Colors.grey,
           ),
-          home: ListPage(),
-   //       home: MyHomePage(title: 'Teddy Frontend',),
-   //          home: ListPageFourteen(),
-        )),
+          home: UserPage(),
+          routes: {
+            "/listpage":(context) => ListPage()
+            }
+        ),
       ),
     );
   }

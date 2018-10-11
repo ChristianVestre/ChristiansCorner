@@ -4,7 +4,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import '../queries/graphql_query.dart' as queries;
 
 
-class ListBloc {
+class UserBloc {
+  UserBloc ();
 
  //var _result = {}
 
@@ -22,14 +23,14 @@ class ListBloc {
     return result;
   }
 
-  Stream<String> get listId => _listId.stream;
-  Sink<String> get listIdSink => _listId.sink;
+  Stream<String> get userId => _userId.stream;
+  Sink<String> get userIdSink => _userId.sink;
 //  Stream<Map<String,dynamic>> get listData => _listData.stream;
 
+
  // final _listData = BehaviorSubject<Map<String,dynamic>>();
-  final _listId = BehaviorSubject<String>();
+  final _userId = BehaviorSubject<String>();
 
 //  var listIdCache = [];
-  ListBloc ();
 
 }

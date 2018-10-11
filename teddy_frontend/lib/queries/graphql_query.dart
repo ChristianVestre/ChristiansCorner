@@ -11,6 +11,25 @@ query {
       	part_name
         content_url
         content_text
+        type
+        listid
+    }
+  }
+}
+"""
+    .replaceAll('\n', ' '); 
+}
+
+fetchUser <String>(String id){
+return """
+query {
+  getUser(userid:"$id"){
+    firstname
+    lastname
+    listids
+    getLists{
+      name
+      id
     }
   }
 }

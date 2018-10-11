@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ImagedPartContainer extends StatelessWidget {
-  ImagedPartContainer({Key key, this.data}) : super(key: key);
+class ImageListPartContainer extends StatelessWidget {
+  ImageListPartContainer({Key key, this.data}) : super(key: key);
+  
   final Map data;
   Widget build(BuildContext context) {
     return Container(
@@ -12,15 +13,24 @@ class ImagedPartContainer extends StatelessWidget {
               textScaleFactor: 1.6,
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.fill, image: NetworkImage(data['content_url'])),
-            ),
+          Stack(
+            children: [
+          Container(child:Center(child: CircularProgressIndicator(backgroundColor: Colors.purple,valueColor:AlwaysStoppedAnimation<Color>(Colors.purple),)
+          ),
             width: double.infinity,
             height: 360.0,
             margin: EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 4.0),
           ),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill, image: NetworkImage(data['content_url']),
+            )),
+            width: double.infinity,
+            height: 360.0,
+            margin: EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 4.0),
+          )
+          ]),
           Container(
             child: Text(data['content_text']),
             width: double.infinity,

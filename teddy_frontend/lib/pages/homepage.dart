@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import '../queries/graphql_query.dart' as queries;
-import '../widgets/imagePartContainer.dart';
+import '../widgets/imageListPartContainer.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -38,8 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 8.0),
               itemCount: lists.length,
               itemBuilder: (BuildContext context, int index) {
-                print(lists[index]['part_name']);
-                return ImagedPartContainer(data:lists[index]);
+        //        print(lists[index]['part_name']);
+                return ImageListPartContainer(data:lists[index]);
                 /* GestureDetector(
                   onTap: () {
 
